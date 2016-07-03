@@ -8,3 +8,7 @@
 
 import Foundation
 import XCTest
+
+class BinaryTreeTest: XCTestCase {
+    
+}
