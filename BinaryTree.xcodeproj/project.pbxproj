@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0A2EE4761D0E4C400074D5BD /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2EE4751D0E4C400074D5BD /* BinaryTree.swift */; };
+		0A6DE96E1D28D03200B55F59 /* BinaryTreeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6DE96D1D28D03200B55F59 /* BinaryTreeTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0A2EE4721D0E4C400074D5BD /* BinaryTree.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinaryTree.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A2EE4751D0E4C400074D5BD /* BinaryTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryTree.swift; sourceTree = "<group>"; };
 		0A2EE4771D0E4C400074D5BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A6DE96D1D28D03200B55F59 /* BinaryTreeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryTreeTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				0A2EE4751D0E4C400074D5BD /* BinaryTree.swift */,
+				0A6DE96D1D28D03200B55F59 /* BinaryTreeTest.swift */,
 				0A2EE4771D0E4C400074D5BD /* Info.plist */,
 			);
 			path = BinaryTree;
@@ -119,6 +122,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A6DE96E1D28D03200B55F59 /* BinaryTreeTest.swift in Sources */,
 				0A2EE4761D0E4C400074D5BD /* BinaryTree.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
