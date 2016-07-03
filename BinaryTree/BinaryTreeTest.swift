@@ -10,5 +10,8 @@ import Foundation
 import XCTest
 
 class BinaryTreeTest: XCTestCase {
-    
+    func testTreeCreation() {
+        let tree = BinaryTree(initialValue: 5)
+        XCTAssertEqual(tree.first, 5)
+    }
 }
