@@ -6,19 +6,19 @@ indirect enum BinaryNode<T: Comparable> {
 }
 
 struct BinaryTree<T: Comparable> {
-    var head:BinaryNode<T>
-    var first: T {
+    public var first: T {
         switch head {
         case let .Node(_, value, _): return value
         default: fatalError()
         }
     }
-    
+    private var head:BinaryNode<T>
+
     init(initialValue:T) {
         self.head = .Node(.Empty, initialValue, .Empty)
     }
     
-    func contains(_ value:T) -> Bool {
+    public func contains(_ value:T) -> Bool {
         return self.checkForValue(value: value, node: head)
     }
     
