@@ -14,20 +14,20 @@ final class Node<T: Comparable> {
 
 public final class BinaryTree<T: Comparable> {
     var head: Node<T>
-    var first: T {
+    public var first: T {
         return head.value
     }
     
-    init(initialValue:T) {
+    public init(initialValue:T) {
         self.head = Node(value: initialValue)
     }
     
-    func contains(value:T) -> Bool {
+    public func contains(value:T) -> Bool {
         if head.value == value { return true }
         return checkForValue(value: value, node: head.left) || checkForValue(value: value, node: head.right)
     }
     
-    func add(value:T) {
+    public func add(value:T) {
         self.add(value:value, node:head)
     }
     
