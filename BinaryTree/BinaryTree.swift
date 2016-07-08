@@ -18,5 +18,19 @@ struct BinaryTree<T: Comparable> {
         self.head = .Node(.Empty, initialValue, .Empty)
     }
     
+    func contains(_ value:T) -> Bool {
+        return self.checkForValue(value: value, node: head)
+    }
     
+    private func checkForValue(value:T, node:BinaryNode<T>) -> Bool {
+        switch node {
+        case .Node(let leftNode, let nodeValue, let rightNode):
+            if value == nodeValue {
+                return true
+            } else {
+                return checkForValue(value: value, node: leftNode) || checkForValue(value: value, node: rightNode)
+            }
+        case .Empty: return false
+        }
+    }
 }

@@ -14,4 +14,10 @@ class BinaryTreeTest: XCTestCase {
         let tree = BinaryTree(initialValue: 5)
         XCTAssertEqual(tree.first, 5)
     }
+    
+    func testContains() {
+        let tree = BinaryTree(initialValue: 4)
+        XCTAssertTrue(tree.contains(4))
+        XCTAssertFalse(tree.contains(5))
+    }
 }
