@@ -1,36 +1,57 @@
 import Foundation
 
-indirect enum BinaryNode<T: Comparable> {
-    case Node(BinaryNode<T>, T, BinaryNode<T>)
-    case Empty
+final class Node<T: Comparable> {
+    let value: T
+    var left: Node?
+    var right: Node?
+    
+    init(value:T) {
+        self.value = value
+        self.left = nil
+        self.right = nil
+    }
 }
 
-public struct BinaryTree<T: Comparable> {
-    public var first: T {
-        switch head {
-        case let .Node(_, value, _): return value
-        default: fatalError()
-        }
+public final class BinaryTree<T: Comparable> {
+    var head: Node<T>
+    var first: T {
+        return head.value
     }
-    private var head:BinaryNode<T>
-
+    
     init(initialValue:T) {
-        self.head = .Node(.Empty, initialValue, .Empty)
+        self.head = Node(value: initialValue)
     }
     
-    public func contains(_ value:T) -> Bool {
-        return self.checkForValue(value: value, node: head)
+    func contains(value:T) -> Bool {
+        if head.value == value { return true }
+        return checkForValue(value: value, node: head.left) || checkForValue(value: value, node: head.right)
     }
     
-    private func checkForValue(value:T, node:BinaryNode<T>) -> Bool {
-        switch node {
-        case .Node(let leftNode, let nodeValue, let rightNode):
-            if value == nodeValue {
-                return true
+    func add(value:T) {
+        self.add(value:value, node:head)
+    }
+    
+    private func checkForValue(value:T, node:Node<T>?) -> Bool {
+        guard let currentNode = node else { return false }
+        if currentNode.value == value { return true }
+        return checkForValue(value: value, node: currentNode.left) || checkForValue(value: value, node: currentNode.right)
+    }
+    
+    private func add(value:T, node:Node<T>) {
+        if value < node.value {
+            if node.left == nil {
+                node.left = Node(value: value)
             } else {
-                return checkForValue(value: value, node: leftNode) || checkForValue(value: value, node: rightNode)
+                self.add(value: value, node: node.left!)
             }
-        case .Empty: return false
+        }
+        
+        if value >= node.value {
+            if node.right == nil {
+                node.right = Node(value: value)
+            } else {
+                self.add(value: value, node: node.right!)
+            }
         }
     }
 }
