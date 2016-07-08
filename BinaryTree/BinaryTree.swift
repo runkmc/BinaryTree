@@ -5,7 +5,7 @@ indirect enum BinaryNode<T: Comparable> {
     case Empty
 }
 
-struct BinaryTree<T: Comparable> {
+public struct BinaryTree<T: Comparable> {
     public var first: T {
         switch head {
         case let .Node(_, value, _): return value
