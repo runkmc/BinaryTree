@@ -23,8 +23,7 @@ public final class BinaryTree<T: Comparable> {
     }
     
     public func contains(value:T) -> Bool {
-        if head.value == value { return true }
-        return checkForValue(value: value, node: head.left) || checkForValue(value: value, node: head.right)
+        return checkForValue(value: value, node: head)
     }
     
     public func add(value:T) {
