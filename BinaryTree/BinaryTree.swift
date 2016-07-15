@@ -32,13 +32,17 @@ public final class BinaryTree<T: Comparable> {
     
     private func checkForValue(value:T, node:Node<T>?) -> Bool {
         guard let currentNode = node else { return false }
+        
         if currentNode.value == value { return true }
+        
         if currentNode.value > value {
             return checkForValue(value: value, node: currentNode.left)
         }
+        
         if currentNode.value < value {
             return checkForValue(value: value, node: currentNode.right)
         }
+        
         return false
     }
     
