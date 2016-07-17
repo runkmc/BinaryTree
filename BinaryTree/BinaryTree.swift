@@ -46,6 +46,10 @@ public final class BinaryTree<T: Comparable> {
         return false
     }
     
+    func max() -> T {
+        return self.getMax(currentNode:self.head)
+    }
+    
     private func add(value:T, node:Node<T>) {
         if value < node.value {
             if node.left == nil {
@@ -61,6 +65,14 @@ public final class BinaryTree<T: Comparable> {
             } else {
                 self.add(value: value, node: node.right!)
             }
+        }
+    }
+    
+    private func getMax(currentNode:Node<T>) -> T {
+        if let rightNode = currentNode.right {
+            return getMax(currentNode: rightNode)
+        } else {
+            return currentNode.value
         }
     }
 }
