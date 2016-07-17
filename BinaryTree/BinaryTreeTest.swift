@@ -29,7 +29,7 @@ class BinaryTreeTest: XCTestCase {
     
     func testMax() {
         let tree = BinaryTree(initialValue: 10)
-        tree.add(value:11)
+        tree.add(value: 11)
         tree.add(value: 29)
         tree.add(value: 4)
         tree.add(value: 5)
@@ -37,5 +37,17 @@ class BinaryTreeTest: XCTestCase {
         tree.add(value: 189)
         tree.add(value: 2)
         XCTAssertEqual(tree.max(), 199)
+    }
+    
+    func testMin() {
+        let tree = BinaryTree(initialValue: 19)
+        tree.add(value: 11)
+        tree.add(value: 29)
+        tree.add(value: 4)
+        tree.add(value: 5)
+        tree.add(value: 199)
+        tree.add(value: 189)
+        tree.add(value: 2)
+        XCTAssertEqual(tree.min(), 2)
     }
 }
