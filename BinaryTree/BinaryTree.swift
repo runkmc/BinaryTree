@@ -52,18 +52,18 @@ public final class BinaryTree<T: Comparable> {
     
     private func add(value:T, node:Node<T>) {
         if value < node.value {
-            if node.left == nil {
-                node.left = Node(value: value)
+            if let leftNode = node.left {
+                self.add(value: value, node: leftNode)
             } else {
-                self.add(value: value, node: node.left!)
+                node.left = Node(value: value)
             }
         }
         
         if value >= node.value {
-            if node.right == nil {
-                node.right = Node(value: value)
+            if let rightNode = node.right {
+                self.add(value: value, node: rightNode)
             } else {
-                self.add(value: value, node: node.right!)
+                node.right = Node(value: value)
             }
         }
     }
