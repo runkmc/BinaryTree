@@ -50,4 +50,14 @@ class BinaryTreeTest: XCTestCase {
         tree.add(value: 2)
         XCTAssertEqual(tree.min(), 2)
     }
+    
+    func testCount() {
+        let tree = BinaryTree(initialValue: "what")
+        XCTAssertEqual(tree.count, 1)
+        tree.add(value: "do")
+        tree.add(value: "you")
+        XCTAssertEqual(tree.count, 3)
+        tree.add(value: "think")
+        XCTAssertEqual(tree.count, 4)
+    }
 }

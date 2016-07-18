@@ -17,9 +17,11 @@ public final class BinaryTree<T: Comparable> {
     public var first: T {
         return head.value
     }
+    private(set) var count: Int
     
     public init(initialValue:T) {
         self.head = Node(value: initialValue)
+        self.count = 1
     }
     
     public func contains(value:T) -> Bool {
@@ -28,6 +30,7 @@ public final class BinaryTree<T: Comparable> {
     
     public func add(value:T) {
         self.add(value:value, node:head)
+        self.count += 1
     }
     
     private func checkForValue(value:T, node:Node<T>?) -> Bool {
