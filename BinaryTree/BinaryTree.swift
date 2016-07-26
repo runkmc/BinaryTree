@@ -12,6 +12,15 @@ final class Node<T: Comparable> {
     }
 }
 
+extension Node: Equatable { }
+
+func ==<T:Comparable>(lhs:Node<T>, rhs:Node<T>) -> Bool {
+    if lhs.value != rhs.value {
+        return false
+    }
+    return (lhs.left == rhs.left) && (lhs.right == rhs.right)
+}
+
 public final class BinaryTree<T: Comparable> {
     var head: Node<T>
     public var first: T {
@@ -48,6 +57,7 @@ public final class BinaryTree<T: Comparable> {
         
         return false
     }
+    
     
     func max() -> T {
         return self.getMax(currentNode:self.head)
@@ -90,4 +100,10 @@ public final class BinaryTree<T: Comparable> {
             return currentNode.value
         }
     }
+}
+
+extension BinaryTree: Equatable { }
+
+public func ==<T:Comparable>(lhs:BinaryTree<T>, rhs:BinaryTree<T>) -> Bool {
+    return lhs.head == rhs.head
 }

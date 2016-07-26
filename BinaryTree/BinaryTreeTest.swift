@@ -60,4 +60,22 @@ class BinaryTreeTest: XCTestCase {
         tree.add(value: "think")
         XCTAssertEqual(tree.count, 4)
     }
+    
+    func testEquality() {
+        let tree1 = BinaryTree(initialValue: 10)
+        tree1.add(value: 2)
+        tree1.add(value: 4)
+        tree1.add(value: 11)
+        let tree2 = BinaryTree(initialValue: 10)
+        tree2.add(value: 2)
+        tree2.add(value: 4)
+        tree2.add(value: 11)
+        XCTAssertTrue(tree1 == tree2)
+        
+        let tree3 = BinaryTree(initialValue: 10)
+        tree3.add(value: 4)
+        tree3.add(value: 2)
+        tree3.add(value: 11)
+        XCTAssertFalse(tree3 == tree1)
+    }
 }
